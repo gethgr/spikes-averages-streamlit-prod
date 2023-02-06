@@ -124,35 +124,36 @@ if uploaded_emg_file and uploaded_spike_file:
         
         df_split_pivot_means = df_split_pivot[['mean_A', 'mean_B', 'mean_C', 'mean_D']].copy()
 
-        col1, col2 = st.columns([1,3])
-        with col1:
-            st.write("#")
-            st.write('**Dataframe Means Values for every channel.**')
-            st.write(df_split_pivot_means,  use_container_width=True)
+        with st.expander("Show Dataframes", expanded=True):
+            col1, col2 = st.columns([1,3])
+            with col1:
+                st.write("#")
+                st.write('**Dataframe Means Values for every channel.**')
+                st.write(df_split_pivot_means,  use_container_width=True)
 
-            st.download_button(
-                        label="Export Means Datatable",
-                        data=df_split_pivot_means.to_csv(),
-                        file_name='file.csv',
-                        mime='text/csv',
-                    )
-        with col2:
-            st.write("#")
-            st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
-            st.dataframe(df_split_pivot, use_container_width=True)
-        
+                st.download_button(
+                            label="Export Means Datatable",
+                            data=df_split_pivot_means.to_csv(),
+                            file_name='file.csv',
+                            mime='text/csv',
+                        )
+            with col2:
+                st.write("#")
+                st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
+                st.dataframe(df_split_pivot, use_container_width=True)
+            
         st.write("---")
         st.subheader("**Charts for every mean value**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
-            st.write("Mean A value.")
+            st.write("Mean value for Channel A.")
             st.bar_chart(df_split_pivot_means['mean_A'])
-            st.write("Mean C value.")
+            st.write("Mean value for Channel C.")
             st.bar_chart(df_split_pivot_means['mean_C'])            
         with col2:
-            st.write("Mean B value.")
+            st.write("Mean value for Channel B.")
             st.bar_chart(df_split_pivot_means['mean_B'])
-            st.write("Mean D value.")
+            st.write("Mean value for Channel D.")
             st.bar_chart(df_split_pivot_means['mean_D'])
        
     #---- End of Start Firing 1 ----#
@@ -179,35 +180,36 @@ if uploaded_emg_file and uploaded_spike_file:
         
         df_split_pivot_means = df_split_pivot[['mean_A', 'mean_B', 'mean_C', 'mean_D']].copy()
 
-        col1, col2 = st.columns([1,3])
-        with col1:
-            st.write("#")
-            st.write('**Dataframe Means Values for every channel.**')
-            st.write(df_split_pivot_means,  use_container_width=True)
+        with st.expander("Show Dataframes", expanded=True):
+            col1, col2 = st.columns([1,3])
+            with col1:
+                st.write("#")
+                st.write('**Dataframe Means Values for every channel.**')
+                st.write(df_split_pivot_means,  use_container_width=True)
 
-            st.download_button(
-                        label="Export Means Datatable",
-                        data=df_split_pivot_means.to_csv(),
-                        file_name='file.csv',
-                        mime='text/csv',
-                    )
-        with col2:
-            st.write("#")
-            st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
-            st.dataframe(df_split_pivot, use_container_width=True)
+                st.download_button(
+                            label="Export Means Datatable",
+                            data=df_split_pivot_means.to_csv(),
+                            file_name='file.csv',
+                            mime='text/csv',
+                        )
+            with col2:
+                st.write("#")
+                st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
+                st.dataframe(df_split_pivot, use_container_width=True)
         
         st.write("---")
         st.subheader("**Charts for every mean value**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
-            st.write("Mean A value.")
+            st.write("Mean value for Channel A.")
             st.bar_chart(df_split_pivot_means['mean_A'])
-            st.write("Mean C value.")
+            st.write("Mean value for Channel C.")
             st.bar_chart(df_split_pivot_means['mean_C'])            
         with col2:
-            st.write("Mean B value.")
+            st.write("Mean value for Channel B.")
             st.bar_chart(df_split_pivot_means['mean_B'])
-            st.write("Mean D value.")
+            st.write("Mean value for Channel D.")
             st.bar_chart(df_split_pivot_means['mean_D'])
 
     #---- End of Start Firing 2 ----#
@@ -217,8 +219,8 @@ if uploaded_emg_file and uploaded_spike_file:
         #if st.button('Calculate Firing 3'):   
         df_from_my_dict3 = pd.DataFrame(my_dict3)
         st.write('#')
-        st.write('**Dataframe Window -10/+10 Spike Times Vertical**', len(df_from_my_dict3.columns))
-        st.dataframe(df_from_my_dict3, use_container_width=True)
+        #st.write('**Dataframe Window -10/+10 Spike Times Vertical**', len(df_from_my_dict3.columns))
+        #st.dataframe(df_from_my_dict3, use_container_width=True)
 
         df_split_pivot = df_from_my_dict3.copy()
         df_split_pivot = df_split_pivot.pivot_table(index= df_from_my_dict3.index, 
@@ -234,19 +236,37 @@ if uploaded_emg_file and uploaded_spike_file:
         
         df_split_pivot_means = df_split_pivot[['mean_A', 'mean_B', 'mean_C', 'mean_D']].copy()
 
-        st.write("#")
-        st.write('**Dataframe Split values horizontal**', len(df_split_pivot.columns))
-        st.dataframe(df_split_pivot, use_container_width=True)
+        with st.expander("Show Dataframes", expanded=True):
+            col1, col2 = st.columns([1,3])
+            with col1:
+                st.write("#")
+                st.write('**Dataframe Means Values for every channel.**')
+                st.write(df_split_pivot_means,  use_container_width=True)
+
+                st.download_button(
+                            label="Export Means Datatable",
+                            data=df_split_pivot_means.to_csv(),
+                            file_name='file.csv',
+                            mime='text/csv',
+                        )
+            with col2:
+                st.write("#")
+                st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
+                st.dataframe(df_split_pivot, use_container_width=True)
         
-        st.write("#")
-        st.write('**Dataframe Average Values**')
-        st.write(df_split_pivot_means,  use_container_width=True)
-        st.download_button(
-                    label="Export Means Datatable",
-                    data=df_split_pivot_means.to_csv(),
-                    file_name='file.csv',
-                    mime='text/csv',
-                )
+        st.write("---")
+        st.subheader("**Charts for every mean value**")
+        col1, col2  = st.columns(2, gap="large")
+        with col1:
+            st.write("Mean value for Channel A.")
+            st.bar_chart(df_split_pivot_means['mean_A'])
+            st.write("Mean value for Channel C.")
+            st.bar_chart(df_split_pivot_means['mean_C'])            
+        with col2:
+            st.write("Mean value for Channel B.")
+            st.bar_chart(df_split_pivot_means['mean_B'])
+            st.write("Mean value for Channel D.")
+            st.bar_chart(df_split_pivot_means['mean_D'])
 
     #---- End of Start Firing 3 ----#
 
@@ -255,8 +275,8 @@ if uploaded_emg_file and uploaded_spike_file:
         #if st.button('Calculate Firing 4'):   
         df_from_my_dict4 = pd.DataFrame(my_dict4)
         st.write('#')
-        st.write('**Dataframe Window -10/+10 Spike Times Vertical**', len(df_from_my_dict4.columns))
-        st.dataframe(df_from_my_dict4, use_container_width=True)
+        #st.write('**Dataframe Window -10/+10 Spike Times Vertical**', len(df_from_my_dict4.columns))
+        #st.dataframe(df_from_my_dict4, use_container_width=True)
 
         df_split_pivot = df_from_my_dict4.copy()
         df_split_pivot = df_split_pivot.pivot_table(index= df_from_my_dict4.index, 
@@ -272,19 +292,37 @@ if uploaded_emg_file and uploaded_spike_file:
         
         df_split_pivot_means = df_split_pivot[['mean_A', 'mean_B', 'mean_C', 'mean_D']].copy()
 
-        st.write("#")
-        st.write('**Dataframe Split values horizontal**', len(df_split_pivot.columns))
-        st.dataframe(df_split_pivot, use_container_width=True)
+        with st.expander("Show Dataframes", expanded=True):
+            col1, col2 = st.columns([1,3])
+            with col1:
+                st.write("#")
+                st.write('**Dataframe Means Values for every channel.**')
+                st.write(df_split_pivot_means,  use_container_width=True)
+
+                st.download_button(
+                            label="Export Means Datatable",
+                            data=df_split_pivot_means.to_csv(),
+                            file_name='file.csv',
+                            mime='text/csv',
+                        )
+            with col2:
+                st.write("#")
+                st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
+                st.dataframe(df_split_pivot, use_container_width=True)
         
-        st.write("#")
-        st.write('**Dataframe Average Values**')
-        st.write(df_split_pivot_means,  use_container_width=True)
-        st.download_button(
-                    label="Export Means Datatable",
-                    data=df_split_pivot_means.to_csv(),
-                    file_name='file.csv',
-                    mime='text/csv',
-                )
+        st.write("---")
+        st.subheader("**Charts for every mean value**")
+        col1, col2  = st.columns(2, gap="large")
+        with col1:
+            st.write("Mean value for Channel A.")
+            st.bar_chart(df_split_pivot_means['mean_A'])
+            st.write("Mean value for Channel C.")
+            st.bar_chart(df_split_pivot_means['mean_C'])            
+        with col2:
+            st.write("Mean value for Channel B.")
+            st.bar_chart(df_split_pivot_means['mean_B'])
+            st.write("Mean value for Channel D.")
+            st.bar_chart(df_split_pivot_means['mean_D'])
 
     #---- End of Start Firing 4 ----#
 
@@ -293,8 +331,8 @@ if uploaded_emg_file and uploaded_spike_file:
         #if st.button('Calculate Firing 5'):   
         df_from_my_dict5 = pd.DataFrame(my_dict5)
         st.write('#')
-        st.write('**Dataframe Window -10/+10 Spike Times Vertical**', len(df_from_my_dict5.columns))
-        st.dataframe(df_from_my_dict5, use_container_width=True)
+        #st.write('**Dataframe Window -10/+10 Spike Times Vertical**', len(df_from_my_dict5.columns))
+        #st.dataframe(df_from_my_dict5, use_container_width=True)
 
         df_split_pivot = df_from_my_dict5.copy()
         df_split_pivot = df_split_pivot.pivot_table(index= df_from_my_dict5.index, 
@@ -310,19 +348,37 @@ if uploaded_emg_file and uploaded_spike_file:
         
         df_split_pivot_means = df_split_pivot[['mean_A', 'mean_B', 'mean_C', 'mean_D']].copy()
 
-        st.write("#")
-        st.write('**Dataframe Split values horizontal**', len(df_split_pivot.columns))
-        st.dataframe(df_split_pivot, use_container_width=True)
-        
-        st.write("#")
-        st.write('**Dataframe Average Values**')
-        st.write(df_split_pivot_means,  use_container_width=True)
-        st.download_button(
-                    label="Export Means Datatable",
-                    data=df_split_pivot_means.to_csv(),
-                    file_name='file.csv',
-                    mime='text/csv',
-                )
+        with st.expander("Show Dataframes", expanded=True):
+            col1, col2 = st.columns([1,3])
+            with col1:
+                st.write("#")
+                st.write('**Dataframe Means Values for every channel.**')
+                st.write(df_split_pivot_means,  use_container_width=True)
+
+                st.download_button(
+                            label="Export Means Datatable",
+                            data=df_split_pivot_means.to_csv(),
+                            file_name='file.csv',
+                            mime='text/csv',
+                        )
+            with col2:
+                st.write("#")
+                st.write('**Dataframe Split values horizontal, there are {} columns**'.format(len(df_split_pivot.columns)))
+                st.dataframe(df_split_pivot, use_container_width=True)
+            
+        st.write("---")
+        st.subheader("**Charts for every mean value**")
+        col1, col2  = st.columns(2, gap="large")
+        with col1:
+            st.write("Mean value for Channel A.")
+            st.bar_chart(df_split_pivot_means['mean_A'])
+            st.write("Mean value for Channel C.")
+            st.bar_chart(df_split_pivot_means['mean_C'])            
+        with col2:
+            st.write("Mean value for Channel B.")
+            st.bar_chart(df_split_pivot_means['mean_B'])
+            st.write("Mean value for Channel D.")
+            st.bar_chart(df_split_pivot_means['mean_D'])
 
     #---- End of Start Firing 5 ----#
 
