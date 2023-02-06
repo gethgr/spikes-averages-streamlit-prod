@@ -6,7 +6,7 @@ import pandas as pd
 
 
 st.set_page_config(
-    page_title="Jumps Metrics App | SPESS",
+    page_title="Spikes Averages Values",
     page_icon="random",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -143,7 +143,7 @@ if uploaded_emg_file and uploaded_spike_file:
                 st.dataframe(df_split_pivot, use_container_width=True)
             
         st.write("---")
-        st.subheader("**Charts for every mean value**")
+        st.subheader("**Charts for mean values per channel**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
             st.write("Mean value for Channel A.")
@@ -199,7 +199,7 @@ if uploaded_emg_file and uploaded_spike_file:
                 st.dataframe(df_split_pivot, use_container_width=True)
         
         st.write("---")
-        st.subheader("**Charts for every mean value**")
+        st.subheader("**Charts for mean values per channel**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
             st.write("Mean value for Channel A.")
@@ -255,7 +255,7 @@ if uploaded_emg_file and uploaded_spike_file:
                 st.dataframe(df_split_pivot, use_container_width=True)
         
         st.write("---")
-        st.subheader("**Charts for every mean value**")
+        st.subheader("**Charts for mean values per channel**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
             st.write("Mean value for Channel A.")
@@ -311,7 +311,7 @@ if uploaded_emg_file and uploaded_spike_file:
                 st.dataframe(df_split_pivot, use_container_width=True)
         
         st.write("---")
-        st.subheader("**Charts for every mean value**")
+        st.subheader("**Charts for mean values per channel**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
             st.write("Mean value for Channel A.")
@@ -367,7 +367,7 @@ if uploaded_emg_file and uploaded_spike_file:
                 st.dataframe(df_split_pivot, use_container_width=True)
             
         st.write("---")
-        st.subheader("**Charts for every mean value**")
+        st.subheader("**Charts for mean values per channel**")
         col1, col2  = st.columns(2, gap="large")
         with col1:
             st.write("Mean value for Channel A.")
