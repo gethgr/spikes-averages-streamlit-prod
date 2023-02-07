@@ -12,12 +12,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     
 )
+
 st.sidebar.subheader("Please choose the propers files.")
 
 col1, col2 = st.columns(2, gap='large')
 #--- Insert the file with Spikes ---#
 with col1:
-    uploaded_spike_file = st.sidebar.file_uploader("Choose Spikes Excel File:")
+    uploaded_spike_file = st.sidebar.file_uploader("Choose Spikes/Firings File:")
     if uploaded_spike_file:
         df_spikes = pd.read_csv(uploaded_spike_file) #(uploaded_file, sep='\s+', skiprows=10, index_col = None)
         spikes_columns = len(df_spikes.columns)
@@ -27,7 +28,7 @@ with col1:
 
 #--- Insert the file with EMG Volts Channels ---#
 with col2:
-    uploaded_emg_file = st.sidebar.file_uploader("Choose EMG Excel File:")
+    uploaded_emg_file = st.sidebar.file_uploader("Choose EMG Volts Values File:")
     if uploaded_emg_file:
         df_emg = pd.read_csv(uploaded_emg_file) #(uploaded_file, sep='\s+', skiprows=10, index_col = None)
         emg_columns = len(df_emg.columns) - 1 
